@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ИБХХ Event Fun</title>
+<style>
+:root{--ink:#17324d;--muted:#668096;--blue:#4f7cff;--cyan:#36d8e8;--pink:#ff72a6;--yellow:#ffd166;--green:#44d7a8;--bg:#f5f9ff;--card:#fff;--line:#dce8f3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 0 0,#dffcff 0,transparent 30%),radial-gradient(circle at 100% 5%,#eee5ff 0,transparent 28%),var(--bg)}
+button,input,select,textarea{font:inherit}.wrap{width:min(1080px,calc(100% - 28px));margin:auto}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;font-size:1.08rem}.brand b{color:var(--blue)}.nav a{color:var(--ink);text-decoration:none;font-weight:750;margin-left:18px}.hero{padding:64px 0 35px;text-align:center}.pill{display:inline-block;padding:7px 13px;border-radius:99px;background:#e8f7ff;color:#17718c;font-size:.78rem;font-weight:850}.hero h1{max-width:760px;margin:18px auto 14px;font-size:clamp(2.4rem,7vw,5.1rem);line-height:.95;letter-spacing:-.06em}.hero h1 span{color:var(--blue)}.hero p{max-width:650px;margin:auto;color:var(--muted);font-size:1.05rem;line-height:1.7}.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:11px;margin-top:25px}.btn{min-height:45px;padding:0 18px;border:0;border-radius:14px;cursor:pointer;font-weight:850;color:var(--ink);background:#fff;box-shadow:0 8px 25px rgba(47,82,120,.12);transition:.18s}.btn:hover{transform:translateY(-2px)}.primary{color:#fff;background:linear-gradient(135deg,var(--blue),#7457e8)}.fun{background:linear-gradient(135deg,var(--yellow),#ffb86b)}
+.section{padding:44px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:19px}.section h2{margin:0;font-size:clamp(1.8rem,4vw,2.7rem)}.section-head p{margin:7px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:20px;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 14px 35px rgba(47,82,120,.08)}.card h3{margin:12px 0 8px}.tag{display:inline-block;padding:5px 10px;border-radius:99px;background:#eef3ff;color:#4869d9;font-size:.74rem;font-weight:850}.meta{display:grid;gap:7px;margin:15px 0;color:var(--muted);font-size:.9rem}.count{display:inline-flex;align-items:center;gap:6px;color:#24785e;font-weight:850}.empty{grid-column:1/-1;padding:35px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:20px}
+.checkin{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px}.panel{padding:22px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 16px 38px rgba(47,82,120,.08)}.field{display:grid;gap:7px;margin-bottom:14px}.field label{font-size:.82rem;font-weight:800;color:var(--muted)}.control{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:#fbfdff;color:var(--ink)}textarea.control{min-height:90px;resize:vertical}.hello{padding:18px;border-radius:18px;background:linear-gradient(135deg,#eafff8,#eef4ff)}.hello strong{display:block;font-size:1.25rem}.hello span{color:var(--muted)}.recent{display:grid;gap:9px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-radius:14px;background:#f7faff}.row small{color:var(--muted)}
+dialog{width:min(580px,calc(100% - 24px));padding:0;border:0;border-radius:24px;box-shadow:0 30px 100px rgba(15,40,70,.28)}dialog::backdrop{background:rgba(20,43,70,.45);backdrop-filter:blur(5px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}.modal-head h2{margin:0}.modal-body{padding:22px}.modal-actions{display:flex;justify-content:flex-end;gap:10px;padding:0 22px 22px}.close{width:38px;height:38px;border:0;border-radius:12px;background:#eef3f8;cursor:pointer}.toast{position:fixed;right:18px;bottom:18px;z-index:30;padding:14px 18px;color:#fff;background:#214e42;border-radius:14px;opacity:0;transform:translateY(15px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:none}.footer{padding:35px 0;text-align:center;color:var(--muted);font-size:.82rem}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.checkin{grid-template-columns:1fr}.nav nav{display:none}}@media(max-width:560px){.grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.section-head .btn{width:100%}.hero{padding-top:44px}.hero h1{font-size:2.75rem}}
+
+/* Premium fun visual refresh */
+:root{--ink:#18233d;--muted:#6b7891;--blue:#5b6cff;--cyan:#35d5e5;--pink:#ff6fae;--yellow:#ffd866;--green:#36c997;--bg:#f7f8ff;--card:rgba(255,255,255,.92);--line:#e4e8f4}
+body{background:radial-gradient(circle at 8% 2%,rgba(53,213,229,.22),transparent 25%),radial-gradient(circle at 92% 0,rgba(255,111,174,.16),transparent 24%),radial-gradient(circle at 50% 90%,rgba(91,108,255,.10),transparent 30%),linear-gradient(180deg,#f9fbff,#f6f5ff);min-height:100vh}
+body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(4px);opacity:.55;animation:drift 9s ease-in-out infinite}
+body:before{width:180px;height:180px;left:-65px;top:32%;background:linear-gradient(135deg,#8ef0f5,#dffcff)}
+body:after{width:220px;height:220px;right:-90px;top:55%;background:linear-gradient(135deg,#f8c6e0,#ece3ff);animation-delay:-4s}
+@keyframes drift{50%{transform:translateY(-18px) rotate(8deg)}}
+.top{box-shadow:0 8px 30px rgba(45,58,110,.06)}
+.brand{display:flex;align-items:center;gap:8px}.brand b{background:linear-gradient(90deg,var(--blue),#8a4fe8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{position:relative;padding:78px 0 55px}.hero:after{content:"✦";position:absolute;right:8%;top:55px;color:var(--pink);font-size:2rem;animation:twinkle 2.2s ease-in-out infinite}.hero:before{content:"●";position:absolute;left:7%;top:120px;color:var(--yellow);font-size:1.5rem;animation:twinkle 2.6s ease-in-out infinite}@keyframes twinkle{50%{transform:scale(1.35) rotate(15deg);opacity:.55}}
+.pill{padding:8px 15px;box-shadow:inset 0 0 0 1px rgba(53,213,229,.18)}
+.hero h1{font-weight:950;text-shadow:0 10px 35px rgba(91,108,255,.11)}.hero h1 span{background:linear-gradient(90deg,var(--blue),#8960ec,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{border:1px solid rgba(255,255,255,.75);box-shadow:0 9px 24px rgba(46,58,115,.13)}.btn:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 14px 30px rgba(46,58,115,.18)}.primary{background:linear-gradient(135deg,#526cff,#8254e8)}.fun{background:linear-gradient(135deg,#ffe16f,#ffad6d)}
+.section{scroll-margin-top:70px}.section-head h2{letter-spacing:-.035em}.grid{gap:18px}.card{position:relative;overflow:hidden;padding:22px;border:1px solid rgba(226,231,244,.95);background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(251,252,255,.9));box-shadow:0 15px 40px rgba(55,68,120,.09);transition:.22s ease}.card:before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--pink))}.card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(55,68,120,.15)}.card h3{font-size:1.28rem}.tag{background:linear-gradient(135deg,#eef2ff,#f5ebff);color:#5b5fc7}.count{padding:7px 10px;border-radius:99px;background:#eafff7}
+.checkin{align-items:stretch}.panel{position:relative;border:1px solid rgba(226,231,244,.95);background:rgba(255,255,255,.94);box-shadow:0 18px 45px rgba(55,68,120,.10)}#checkForm{background:linear-gradient(160deg,#fff,#f9fbff)}#checkForm:before{content:"1 → 2 → GO!";display:inline-flex;margin-bottom:16px;padding:6px 10px;border-radius:99px;color:#596dd2;background:#edf1ff;font-size:.73rem;font-weight:900;letter-spacing:.08em}.control{border:1.5px solid #e2e7f3;background:#fff;transition:.18s}.control:hover,.control:focus{border-color:#8d9aff;box-shadow:0 0 0 4px rgba(91,108,255,.09);outline:0}.hello{border:1px solid #dff3ed;background:linear-gradient(135deg,#eafff8,#f0f3ff)}.row{border:1px solid #edf0f7;background:linear-gradient(135deg,#fafcff,#f8f6ff)}
+dialog{background:linear-gradient(160deg,#fff,#fafbff);border:1px solid #eef0f7}.modal-head{background:linear-gradient(90deg,#f3f7ff,#fff5fa)}
+.toast{box-shadow:0 18px 50px rgba(22,67,54,.26)}
+@media(max-width:560px){.hero:before,.hero:after{display:none}.hero{padding:50px 0 34px}.card{padding:20px}.panel{padding:18px}.actions{display:grid}.actions .btn{width:100%}}
+
+
+.card-actions{display:flex;justify-content:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid #edf0f7}
+.edit-btn{min-height:36px;padding:0 13px;border:1px solid #dfe4f2;border-radius:11px;cursor:pointer;color:#5261bc;background:#f4f6ff;font-weight:850;transition:.18s}
+.edit-btn:hover{transform:translateY(-2px);background:#e9edff}
+.card-actions{gap:8px;flex-wrap:wrap}
+.delete-btn{min-height:36px;padding:0 13px;border:1px solid #ffd9e3;border-radius:11px;cursor:pointer;color:#c94468;background:#fff3f6;font-weight:850;transition:.18s}
+.delete-btn:hover{transform:translateY(-2px);background:#ffe8ee}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav"><div class="brand">🎉 ИБХХ <b>Event Fun</b></div><nav><a href="#events">Event</a><a href="#checkin">Ирц өгөх</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><span class="pill">SIMPLE • FUN • TOGETHER</span><h1>Event-ээ үүсгэ.<br><span>Ирцээ өөрөө өг.</span></h1><p>Хэлтсийн арга хэмжээг нэг дороос харж, ажилтан нэрээ сонгоод ирцээ хурдан бүртгэх хялбар хуудас.</p><div class="actions"><button class="btn primary" onclick="openEvent()">＋ Шинэ event</button><a class="btn fun" href="#checkin" style="display:inline-flex;align-items:center;text-decoration:none">🙋 Ирцээ өгөх</a></div></section>
+<section class="section" id="events"><div class="section-head"><div><h2>Юу болох гэж байна? ✨</h2><p>Сонирхсон event-ийн картаа сонгоод ирцээ өгөөрэй.</p></div><button class="btn primary" onclick="openEvent()">＋ Event нэмэх</button></div><div class="grid" id="eventGrid"></div></section>
+<section class="section" id="checkin"><div class="section-head"><div><h2>Ирцээ 3 секундэд өг 🙌</h2><p>Event → Нэр → “Би ирлээ”. Ингээд л боллоо!</p></div></div><div class="checkin"><form class="panel" id="checkForm"><div class="field"><label>EVENT</label><select class="control" id="checkEvent" required></select></div><div class="field"><label>ТАНЫ НЭР</label><select class="control" id="checkEmployee" required></select></div><button class="btn fun" id="checkinButton" style="width:100%" type="button">🎯 Би ирлээ</button></form><div class="panel"><div class="hello"><strong id="helloTitle">Тавтай морил!</strong><span id="helloText">Ирц өгсөн хүмүүс энд харагдана.</span></div><h3>Сүүлийн ирц <span id="attendanceTotal" class="tag">0</span></h3><div class="recent" id="recent"></div></div></div></section>
+</main><footer class="footer">ИБХХ Event Fun • D1 SYNC v3 • Мэдээлэл төвлөрсөн байдлаар хадгалагдана.</footer>
+<dialog id="eventDialog"><form id="eventForm"><input type="hidden" id="editingEventId"><div class="modal-head"><h2 id="eventDialogTitle">Шинэ event 🎈</h2><button class="close" type="button" onclick="document.getElementById('eventDialog').close()">✕</button></div><div class="modal-body"><div class="field"><label>EVENT-ИЙН НЭР *</label><input class="control" id="eventTitle" required placeholder="Жишээ: Friday Fun"></div><div class="field"><label>ТӨРӨЛ</label><select class="control" id="eventType"><option>Сургалт</option><option>Спорт</option><option>Соёл</option><option>Сайн дурын ажил</option><option>Уулзалт</option><option>Бусад</option></select></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="field"><label>ОГНОО *</label><input class="control" id="eventDate" type="date" required></div><div class="field"><label>ЦАГ</label><input class="control" id="eventTime" type="time"></div></div><div class="field"><label>БАЙРШИЛ</label><input class="control" id="eventPlace" placeholder="Танхим / онлайн"></div><div class="field"><label>ТОВЧ ТАЙЛБАР</label><textarea class="control" id="eventNote" placeholder="Юу болох талаар товчхон..."></textarea></div></div><div class="modal-actions"><button class="btn" type="button" onclick="document.getElementById('eventDialog').close()">Болих</button><button class="btn primary" id="eventSaveButton" type="button">Хадгалах</button></div></form></dialog>
+
+<dialog id="deleteDialog">
+  <div class="modal-head"><h2>Event устгах уу? 🗑</h2><button class="close" id="deleteCloseButton" type="button">✕</button></div>
+  <div class="modal-body">
+    <p id="deleteMessage" style="margin:0;color:var(--muted);line-height:1.7"></p>
+    <input type="hidden" id="deleteEventId">
+  </div>
+  <div class="modal-actions"><button class="btn" id="deleteCancelButton" type="button">Болих</button><button class="delete-btn" id="deleteConfirmButton" type="button">Тийм, устгах</button></div>
+</dialog>
+<div class="toast" id="toast"></div>
+<script>
+'use strict';
+var employees=['Аззаяа.Н','Анар.Г','Лхамсүрэн.Г','Нансалмаа.Д','Наранцэцэг.З','Тэмүүлэн.С','Түмэнгэрэл.А','Уянга.Ба','Чойсүрэн.Б'];
+var db={events:[],attendance:[]};
+function el(id){return document.getElementById(id)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function toast(t){var x=el('toast');x.textContent=t;x.classList.add('show');setTimeout(function(){x.classList.remove('show')},2600)}
+function fmt(d){return d?new Intl.DateTimeFormat('mn-MN',{month:'short',day:'numeric'}).format(new Date(d+'T00:00:00')):'Огноогүй'}
+function api(method,body){
+ var options={method:method,headers:{'Accept':'application/json'}};
+ if(body){options.headers['Content-Type']='application/json';options.body=JSON.stringify(body)}
+ return fetch('/api/state',options).then(function(res){
+  return res.text().then(function(text){
+   var data;try{data=JSON.parse(text)}catch(err){data={error:'API JSON биш хариу өглөө (HTTP '+res.status+')'}}
+   if(!res.ok)throw new Error(data.error||('HTTP '+res.status));
+   return data;
+  });
+ });
+}
+function load(){
+ return api('GET').then(function(data){db=data;render();return data}).catch(function(err){console.error(err);toast('D1 ачаалсангүй: '+err.message);render();throw err});
+}
+function render(){
+ var selectedEvent=el('checkEvent')?el('checkEvent').value:'';
+ var selectedEmployee=el('checkEmployee')?el('checkEmployee').value:'';
+ el('eventGrid').innerHTML=db.events.length?db.events.map(function(e){var n=db.attendance.filter(function(a){return a.eventId===e.id}).length;return '<article class="card" data-event-card="'+esc(e.id)+'" style="cursor:pointer"><span class="tag">'+esc(e.type)+'</span><h3>'+esc(e.title)+'</h3><div class="meta"><span>📅 '+fmt(e.date)+' '+esc(e.time)+'</span><span>📍 '+esc(e.place||'Байршилгүй')+'</span><span>'+esc(e.note||'')+'</span></div><span class="count">✅ '+n+' хүн ирц өгсөн</span><div class="card-actions"><button type="button" class="edit-btn" data-edit-event="'+esc(e.id)+'">✏️ Засах</button><button type="button" class="delete-btn" data-delete-event="'+esc(e.id)+'">🗑 Устгах</button></div></article>'}).join(''):'<div class="empty">Одоогоор event алга. Шинэ event нэмээрэй 🎈</div>';
+ var eo=db.events.map(function(e){return '<option value="'+esc(e.id)+'">'+esc(e.title)+' · '+fmt(e.date)+'</option>'}).join('');el('checkEvent').innerHTML=eo||'<option value="">Event алга</option>';
+ if(selectedEvent&&db.events.some(function(e){return e.id===selectedEvent}))el('checkEvent').value=selectedEvent;
+ el('checkEmployee').innerHTML='<option value="">Нэрээ сонгоно уу</option>'+employees.map(function(n){return '<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('');
+ if(selectedEmployee&&employees.indexOf(selectedEmployee)>=0)el('checkEmployee').value=selectedEmployee;
+ el('attendanceTotal').textContent=db.attendance.length;
+ var names={};db.events.forEach(function(e){names[e.id]=e.title});el('recent').innerHTML=db.attendance.length?db.attendance.slice(-6).reverse().map(function(a){return '<div class="row"><div><strong>'+esc(a.name)+'</strong><br><small>'+esc(names[a.eventId]||'Event')+'</small></div><span>✅</span></div>'}).join(''):'<div class="empty">Ирц бүртгэгдээгүй байна.</div>';
+}
+function openEvent(){el('eventForm').reset();el('editingEventId').value='';el('eventDialogTitle').textContent='Шинэ event 🎈';el('eventDialog').showModal()}
+window.openEvent=openEvent;
+window.pickEvent=function(id){el('checkEvent').value=id;location.hash='checkin'};
+function editEvent(id){var item=db.events.find(function(x){return x.id===id});if(!item)return;el('editingEventId').value=item.id;el('eventTitle').value=item.title||'';el('eventType').value=item.type||'Бусад';el('eventDate').value=item.date||'';el('eventTime').value=item.time||'';el('eventPlace').value=item.place||'';el('eventNote').value=item.note||'';el('eventDialogTitle').textContent='Event засах ✏️';el('eventDialog').showModal()}
+function saveEvent(){
+ var form=el('eventForm');if(form.reportValidity&&!form.reportValidity())return false;
+ var button=el('eventSaveButton');if(button.disabled)return false;
+ button.disabled=true;button.textContent='Хадгалж байна...';
+ var id=el('editingEventId').value;
+ var item={id:id||('e'+Date.now()),title:el('eventTitle').value.trim(),type:el('eventType').value,date:el('eventDate').value,time:el('eventTime').value,place:el('eventPlace').value.trim(),note:el('eventNote').value.trim()};
+ api('POST',{action:id?'updateEvent':'createEvent',event:item}).then(function(){
+  return load();
+ }).then(function(){
+  el('eventDialog').close();location.hash='events';toast(id?'Event амжилттай шинэчлэгдлээ ✅':'Шинэ event нэмэгдлээ 🎉');
+ }).catch(function(err){console.error(err);alert('Event хадгалсангүй: '+err.message)}).finally(function(){button.disabled=false;button.textContent='Хадгалах'});
+ return false;
+}
+function deleteEvent(id){var item=db.events.find(function(x){return x.id===id});if(!item)return toast('Устгах event олдсонгүй');el('deleteEventId').value=id;el('deleteMessage').textContent='“'+item.title+'” event болон түүнтэй холбоотой ирцийн мэдээллийг устгана.';el('deleteDialog').showModal()}
+function confirmDeleteEvent(){var id=el('deleteEventId').value;if(!id)return;api('POST',{action:'deleteEvent',id:id}).then(load).then(function(){el('deleteDialog').close();toast('Event амжилттай устгагдлаа 🗑')}).catch(function(err){alert('Устгасангүй: '+err.message)})}
+function registerAttendance(){var eventId=el('checkEvent').value,name=el('checkEmployee').value;if(!eventId||!name){toast('Event болон нэрээ сонгоно уу');return false}api('POST',{action:'registerAttendance',eventId:eventId,name:name}).then(load).then(function(){var eventItem=db.events.find(function(x){return x.id===eventId});el('helloTitle').textContent='Сайн байна уу, '+name+'! 🎉';el('helloText').textContent=(eventItem?eventItem.title:'Event')+' event-д таны ирц бүртгэгдлээ.';toast('Ирц амжилттай бүртгэгдлээ ✅')}).catch(function(err){alert('Ирц бүртгэсэнгүй: '+err.message)});return false}
+window.editEvent=editEvent;window.saveEvent=saveEvent;window.deleteEvent=deleteEvent;window.confirmDeleteEvent=confirmDeleteEvent;window.registerAttendance=registerAttendance;
+el('deleteConfirmButton').addEventListener('click',confirmDeleteEvent);el('deleteCancelButton').addEventListener('click',function(){el('deleteDialog').close()});el('deleteCloseButton').addEventListener('click',function(){el('deleteDialog').close()});
+el('eventSaveButton').addEventListener('click',saveEvent);el('eventForm').addEventListener('submit',function(e){e.preventDefault();saveEvent()});
+el('eventGrid').addEventListener('click',function(e){var eb=e.target.closest('[data-edit-event]');if(eb){e.preventDefault();e.stopPropagation();editEvent(eb.getAttribute('data-edit-event'));return}var dbtn=e.target.closest('[data-delete-event]');if(dbtn){e.preventDefault();e.stopPropagation();deleteEvent(dbtn.getAttribute('data-delete-event'));return}var card=e.target.closest('[data-event-card]');if(card)window.pickEvent(card.getAttribute('data-event-card'))});
+el('checkinButton').addEventListener('click',registerAttendance);el('checkForm').addEventListener('submit',function(e){e.preventDefault();registerAttendance()});
+load();
+</script>
+</body></html>
