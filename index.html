@@ -39,14 +39,73 @@ dialog{background:linear-gradient(160deg,#fff,#fafbff);border:1px solid #eef0f7}
 .card-actions{gap:8px;flex-wrap:wrap}
 .delete-btn{min-height:36px;padding:0 13px;border:1px solid #ffd9e3;border-radius:11px;cursor:pointer;color:#c94468;background:#fff3f6;font-weight:850;transition:.18s}
 .delete-btn:hover{transform:translateY(-2px);background:#ffe8ee}
+
+/* Birthday section */
+.birthday-grid{display:grid;grid-template-columns:1.05fr 1.95fr;gap:18px;align-items:stretch}
+.birthday-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;min-height:250px;background:linear-gradient(145deg,#fff5d8,#fff,#f7eaff)}
+.birthday-hero:after{content:"🎂";position:absolute;right:18px;bottom:2px;font-size:6rem;opacity:.17;transform:rotate(-8deg)}
+.birthday-hero .next-name{font-size:1.7rem;font-weight:950;margin:10px 0 4px;color:#6b4fd3}
+.birthday-hero .next-date{font-size:1rem;color:var(--muted)}
+.birthday-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.birthday-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border:1px solid #edf0f7;border-radius:15px;background:linear-gradient(135deg,#fff,#faf8ff)}
+.birthday-item.today{border-color:#ffd166;background:linear-gradient(135deg,#fff7d6,#fff0f7);box-shadow:0 10px 25px rgba(255,177,75,.16)}
+.birthday-item.next{border-color:#b8c0ff;background:linear-gradient(135deg,#f0f3ff,#fff)}
+.birthday-person{display:flex;align-items:center;gap:10px;min-width:0}.birthday-avatar{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#ffe170,#ff91bd);font-size:1.15rem}.birthday-person strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.birthday-date{white-space:nowrap;padding:6px 9px;border-radius:99px;background:#f1f4ff;color:#5966bd;font-size:.78rem;font-weight:900}
+@media(max-width:850px){.birthday-grid{grid-template-columns:1fr}.birthday-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.birthday-list{grid-template-columns:1fr}.birthday-hero{min-height:210px}}
+
+/* ===== EVENT FUN v4 MOTION UI ===== */
+:root{--surface:rgba(255,255,255,.72);--surface-solid:#fff;--shadow:0 22px 70px rgba(42,52,110,.14);--glow:rgba(91,108,255,.25)}
+body{overflow-x:hidden;transition:background .35s,color .35s}
+body.dark{--ink:#edf1ff;--muted:#aeb9d1;--bg:#09101f;--card:rgba(19,29,50,.88);--line:#293650;--surface:rgba(15,24,43,.74);--surface-solid:#131d32;--shadow:0 24px 75px rgba(0,0,0,.35);--glow:rgba(112,128,255,.36);background:radial-gradient(circle at 10% 0,rgba(53,213,229,.13),transparent 28%),radial-gradient(circle at 90% 0,rgba(255,111,174,.12),transparent 26%),#09101f}
+body.dark .top,body.dark .panel,body.dark .card,body.dark dialog{background:var(--surface);border-color:var(--line)}
+body.dark .control,body.dark .row,body.dark .birthday-item{background:#111c31;color:var(--ink);border-color:var(--line)}
+body.dark .hello{background:linear-gradient(135deg,#102c2b,#18213e)}body.dark .birthday-date{background:#202b49;color:#c9d0ff}
+.top{top:12px;left:50%;transform:translateX(-50%);width:min(1080px,calc(100% - 28px));border:1px solid rgba(255,255,255,.64);border-radius:20px;background:var(--surface);box-shadow:0 12px 42px rgba(40,53,108,.12)}
+.nav{padding:0 16px}.nav-tools{display:flex;align-items:center;gap:8px}.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:13px;background:var(--surface-solid);color:var(--ink);cursor:pointer;transition:.2s;box-shadow:0 8px 18px rgba(33,44,88,.08)}.icon-btn:hover{transform:translateY(-2px) rotate(4deg)}
+.hero{min-height:620px;display:grid;place-content:center}.hero-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(2px);animation:orbFloat 8s ease-in-out infinite}.orb-a{width:130px;height:130px;left:4%;top:18%;background:linear-gradient(135deg,#70edf4,#bffcff);opacity:.55}.orb-b{width:170px;height:170px;right:2%;bottom:8%;background:linear-gradient(135deg,#ffafd0,#d7c8ff);opacity:.5;animation-delay:-3s}@keyframes orbFloat{50%{transform:translate3d(18px,-28px,0) rotate(15deg)}}
+.hero .pill{animation:fadeUp .65s both}.hero h1{animation:fadeUp .75s .08s both}.hero p{animation:fadeUp .75s .16s both}.hero .actions{animation:fadeUp .75s .24s both}@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-28px;position:relative;z-index:2}.stat{padding:18px;border:1px solid rgba(255,255,255,.72);border-radius:20px;background:var(--surface);backdrop-filter:blur(20px);box-shadow:var(--shadow)}.stat-icon{font-size:1.4rem}.stat-value{display:block;margin-top:6px;font-size:1.75rem;font-weight:950}.stat-label{color:var(--muted);font-size:.78rem;font-weight:800}
+.card{transform-style:preserve-3d;will-change:transform}.card>*{transform:translateZ(18px)}.card:hover{box-shadow:0 30px 70px rgba(55,68,120,.2)}
+.reveal{opacity:0;transform:translateY(26px) scale(.985);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}
+.birthday-hero{animation:birthdayGlow 3.2s ease-in-out infinite}@keyframes birthdayGlow{50%{box-shadow:0 20px 65px rgba(255,180,87,.28),0 0 0 7px rgba(255,209,102,.06)}}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px;max-width:400px}.timebox{padding:10px 6px;text-align:center;border:1px solid rgba(255,255,255,.72);border-radius:14px;background:rgba(255,255,255,.62);backdrop-filter:blur(10px)}body.dark .timebox{background:rgba(20,31,54,.72)}.timebox b{display:block;font-size:1.15rem}.timebox small{color:var(--muted);font-size:.66rem}
+.birthday-item{transition:.22s}.birthday-item:hover{transform:translateX(5px);box-shadow:0 12px 26px rgba(55,68,120,.1)}.birthday-avatar{color:#fff;font-weight:950;animation:avatarFloat 3s ease-in-out infinite}@keyframes avatarFloat{50%{transform:translateY(-3px) rotate(3deg)}}
+.month-wall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.month-card{padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:0 12px 30px rgba(45,58,110,.07)}.month-card h3{margin:0 0 12px}.month-person{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px dashed var(--line);font-size:.88rem}
+.balloon-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none}.balloon{position:absolute;bottom:-100px;width:38px;height:48px;border-radius:50% 50% 45% 45%;opacity:.34;animation:balloonUp var(--dur) linear infinite;animation-delay:var(--delay)}.balloon:after{content:"";position:absolute;left:50%;top:45px;width:1px;height:58px;background:currentColor}@keyframes balloonUp{to{transform:translateY(-850px) translateX(var(--drift)) rotate(10deg)}}
+.confetti{position:fixed;top:-18px;z-index:9999;width:9px;height:14px;border-radius:2px;pointer-events:none;animation:confettiFall var(--fall) linear forwards}@keyframes confettiFall{to{transform:translate3d(var(--x),110vh,0) rotate(900deg);opacity:.2}}
+.progress{position:fixed;top:0;left:0;z-index:100;width:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--pink));box-shadow:0 0 12px var(--glow)}
+body.reduce-motion *,body.reduce-motion *:before,body.reduce-motion *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(max-width:850px){.stats-grid{grid-template-columns:repeat(2,1fr)}.month-wall{grid-template-columns:repeat(2,1fr)}.hero{min-height:540px}}
+@media(max-width:560px){.top{top:7px}.nav{min-height:58px;padding:0 10px}.stats-grid{grid-template-columns:1fr 1fr;margin-top:-12px}.stat{padding:14px}.stat-value{font-size:1.4rem}.countdown{grid-template-columns:repeat(2,1fr)}.month-wall{grid-template-columns:1fr}.hero{min-height:510px}.hero h1{font-size:2.7rem}.birthday-grid{display:block}.birthday-grid>.panel+ .panel{margin-top:14px}}
+
+.preview-note{display:none;position:fixed;left:50%;bottom:16px;z-index:80;transform:translateX(-50%);padding:10px 14px;border-radius:99px;background:#18233d;color:#fff;font-size:.78rem;font-weight:800;box-shadow:0 12px 35px rgba(0,0,0,.2)}body.preview-mode .preview-note{display:block}
 </style>
 </head>
-<body>
-<header class="top"><div class="wrap nav"><div class="brand">🎉 ИБХХ <b>Event Fun</b></div><nav><a href="#events">Event</a><a href="#checkin">Ирц өгөх</a></nav></div></header>
+<body><div class="progress" id="scrollProgress"></div>
+<header class="top"><div class="wrap nav"><div class="brand">🎉 ИБХХ <b>Event Fun</b></div><nav><a href="#events">Event</a><a href="#birthdays">Төрсөн өдөр</a><a href="#checkin">Ирц өгөх</a></nav><div class="nav-tools"><button class="icon-btn" id="motionToggle" type="button" title="Хөдөлгөөн">✨</button><button class="icon-btn" id="themeToggle" type="button" title="Загвар солих">🌙</button></div></div></header>
 <main class="wrap">
-<section class="hero"><span class="pill">SIMPLE • FUN • TOGETHER</span><h1>Event-ээ үүсгэ.<br><span>Ирцээ өөрөө өг.</span></h1><p>Хэлтсийн арга хэмжээг нэг дороос харж, ажилтан нэрээ сонгоод ирцээ хурдан бүртгэх хялбар хуудас.</p><div class="actions"><button class="btn primary" onclick="openEvent()">＋ Шинэ event</button><a class="btn fun" href="#checkin" style="display:inline-flex;align-items:center;text-decoration:none">🙋 Ирцээ өгөх</a></div></section>
-<section class="section" id="events"><div class="section-head"><div><h2>Юу болох гэж байна? ✨</h2><p>Сонирхсон event-ийн картаа сонгоод ирцээ өгөөрэй.</p></div><button class="btn primary" onclick="openEvent()">＋ Event нэмэх</button></div><div class="grid" id="eventGrid"></div></section>
-<section class="section" id="checkin"><div class="section-head"><div><h2>Ирцээ 3 секундэд өг 🙌</h2><p>Event → Нэр → “Би ирлээ”. Ингээд л боллоо!</p></div></div><div class="checkin"><form class="panel" id="checkForm"><div class="field"><label>EVENT</label><select class="control" id="checkEvent" required></select></div><div class="field"><label>ТАНЫ НЭР</label><select class="control" id="checkEmployee" required></select></div><button class="btn fun" id="checkinButton" style="width:100%" type="button">🎯 Би ирлээ</button></form><div class="panel"><div class="hello"><strong id="helloTitle">Тавтай морил!</strong><span id="helloText">Ирц өгсөн хүмүүс энд харагдана.</span></div><h3>Сүүлийн ирц <span id="attendanceTotal" class="tag">0</span></h3><div class="recent" id="recent"></div></div></div></section>
+<section class="hero"><span class="hero-orb orb-a"></span><span class="hero-orb orb-b"></span><span class="pill">SIMPLE • FUN • TOGETHER</span><h1>Event-ээ үүсгэ.<br><span>Ирцээ өөрөө өг.</span></h1><p>Хэлтсийн арга хэмжээг нэг дороос харж, ажилтан нэрээ сонгоод ирцээ хурдан бүртгэх хялбар хуудас.</p><div class="actions"><button class="btn primary" onclick="openEvent()">＋ Шинэ event</button><a class="btn fun" href="#checkin" style="display:inline-flex;align-items:center;text-decoration:none">🙋 Ирцээ өгөх</a></div></section>
+<section class="stats-grid reveal" aria-label="Товч үзүүлэлт">
+ <div class="stat"><span class="stat-icon">🎈</span><b class="stat-value" id="statEvents">0</b><span class="stat-label">НИЙТ EVENT</span></div>
+ <div class="stat"><span class="stat-icon">✅</span><b class="stat-value" id="statAttendance">0</b><span class="stat-label">НИЙТ ИРЦ</span></div>
+ <div class="stat"><span class="stat-icon">👥</span><b class="stat-value" id="statPeople">9</b><span class="stat-label">АЖИЛТАН</span></div>
+ <div class="stat"><span class="stat-icon">🎂</span><b class="stat-value" id="statBirthday">—</b><span class="stat-label">ДАРААГИЙН ТӨРСӨН ӨДӨР</span></div>
+</section>
+<section class="section reveal" id="events"><div class="section-head"><div><h2>Юу болох гэж байна? ✨</h2><p>Сонирхсон event-ийн картаа сонгоод ирцээ өгөөрэй.</p></div><button class="btn primary" onclick="openEvent()">＋ Event нэмэх</button></div><div class="grid" id="eventGrid"></div></section>
+
+<section class="section reveal" id="birthdays">
+  <div class="section-head"><div><h2>Төрсөн өдрийн календарь 🎂</h2><p>Багийн төрсөн өдрүүдийг нэг дороос хараарай.</p></div></div>
+  <div class="birthday-grid">
+    <div class="panel birthday-hero"><div class="balloon-layer" id="balloonLayer"></div>
+      <span class="pill">ДАРААГИЙН ТӨРСӨН ӨДӨР</span>
+      <div class="next-name" id="nextBirthdayName">—</div>
+      <div class="next-date" id="nextBirthdayDate">—</div><div class="countdown" id="birthdayCountdown"></div>
+    </div>
+    <div class="panel"><div class="birthday-list" id="birthdayList"></div></div>
+  </div><div class="month-wall" id="birthdayWall"></div>
+</section>
+<section class="section reveal" id="checkin"><div class="section-head"><div><h2>Ирцээ 3 секундэд өг 🙌</h2><p>Event → Нэр → “Би ирлээ”. Ингээд л боллоо!</p></div></div><div class="checkin"><form class="panel" id="checkForm"><div class="field"><label>EVENT</label><select class="control" id="checkEvent" required></select></div><div class="field"><label>ТАНЫ НЭР</label><select class="control" id="checkEmployee" required></select></div><button class="btn fun" id="checkinButton" style="width:100%" type="button">🎯 Би ирлээ</button></form><div class="panel"><div class="hello"><strong id="helloTitle">Тавтай морил!</strong><span id="helloText">Ирц өгсөн хүмүүс энд харагдана.</span></div><h3>Сүүлийн ирц <span id="attendanceTotal" class="tag">0</span></h3><div class="recent" id="recent"></div></div></div></section>
 </main><footer class="footer">ИБХХ Event Fun • D1 SYNC v3 • Мэдээлэл төвлөрсөн байдлаар хадгалагдана.</footer>
 <dialog id="eventDialog"><form id="eventForm"><input type="hidden" id="editingEventId"><div class="modal-head"><h2 id="eventDialogTitle">Шинэ event 🎈</h2><button class="close" type="button" onclick="document.getElementById('eventDialog').close()">✕</button></div><div class="modal-body"><div class="field"><label>EVENT-ИЙН НЭР *</label><input class="control" id="eventTitle" required placeholder="Жишээ: Friday Fun"></div><div class="field"><label>ТӨРӨЛ</label><select class="control" id="eventType"><option>Сургалт</option><option>Спорт</option><option>Соёл</option><option>Сайн дурын ажил</option><option>Уулзалт</option><option>Бусад</option></select></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="field"><label>ОГНОО *</label><input class="control" id="eventDate" type="date" required></div><div class="field"><label>ЦАГ</label><input class="control" id="eventTime" type="time"></div></div><div class="field"><label>БАЙРШИЛ</label><input class="control" id="eventPlace" placeholder="Танхим / онлайн"></div><div class="field"><label>ТОВЧ ТАЙЛБАР</label><textarea class="control" id="eventNote" placeholder="Юу болох талаар товчхон..."></textarea></div></div><div class="modal-actions"><button class="btn" type="button" onclick="document.getElementById('eventDialog').close()">Болих</button><button class="btn primary" id="eventSaveButton" type="button">Хадгалах</button></div></form></dialog>
 
@@ -58,30 +117,32 @@ dialog{background:linear-gradient(160deg,#fff,#fafbff);border:1px solid #eef0f7}
   </div>
   <div class="modal-actions"><button class="btn" id="deleteCancelButton" type="button">Болих</button><button class="delete-btn" id="deleteConfirmButton" type="button">Тийм, устгах</button></div>
 </dialog>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast"></div><div class="preview-note">Preview горим · Мэдээлэл зөвхөн энэ browser-т хадгалагдана</div>
 <script>
 'use strict';
-var employees=['Аззаяа.Н','Анар.Г','Лхамсүрэн.Г','Нансалмаа.Д','Наранцэцэг.З','Тэмүүлэн.С','Түмэнгэрэл.А','Уянга.Ба','Чойсүрэн.Б'];
+var employeeBirthdays=[
+ {name:'Анар.Г',month:1,day:10},
+ {name:'Наранцэцэг.З',month:1,day:13},
+ {name:'Түмэнгэрэл.А',month:5,day:3},
+ {name:'Тэмүүлэн.С',month:6,day:12},
+ {name:'Лхамсүрэн.Г',month:9,day:10},
+ {name:'Аззаяа',month:9,day:28},
+ {name:'Уянга.Ба',month:10,day:28},
+ {name:'Чойсүрэн.Б',month:11,day:26},
+ {name:'Нансалмаа.Д',month:12,day:14}
+];
+var employees=employeeBirthdays.map(function(x){return x.name});
 var db={events:[],attendance:[]};
 function el(id){return document.getElementById(id)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function toast(t){var x=el('toast');x.textContent=t;x.classList.add('show');setTimeout(function(){x.classList.remove('show')},2600)}
 function fmt(d){return d?new Intl.DateTimeFormat('mn-MN',{month:'short',day:'numeric'}).format(new Date(d+'T00:00:00')):'Огноогүй'}
-function api(method,body){
- var options={method:method,headers:{'Accept':'application/json'}};
- if(body){options.headers['Content-Type']='application/json';options.body=JSON.stringify(body)}
- return fetch('/api/state',options).then(function(res){
-  return res.text().then(function(text){
-   var data;try{data=JSON.parse(text)}catch(err){data={error:'API JSON биш хариу өглөө (HTTP '+res.status+')'}}
-   if(!res.ok)throw new Error(data.error||('HTTP '+res.status));
-   return data;
-  });
- });
-}
-function load(){
- return api('GET').then(function(data){db=data;render();return data}).catch(function(err){console.error(err);toast('D1 ачаалсангүй: '+err.message);render();throw err});
-}
+function isPreviewMode(){var h=String(location.hostname||'').toLowerCase();return location.protocol==='file:'||location.protocol==='blob:'||h.indexOf('sharepoint')>=0||h.indexOf('officeapps.live.com')>=0}
+function localApi(method,body){return new Promise(function(resolve,reject){try{var raw=localStorage.getItem('eventFunPreviewData'),state=raw?JSON.parse(raw):{events:[],attendance:[]};if(method==='GET')return resolve(state);if(body&&body.action==='createEvent')state.events.push(body.event);else if(body&&body.action==='updateEvent'){var i=state.events.findIndex(function(x){return x.id===body.event.id});if(i>=0)state.events[i]=body.event;else state.events.push(body.event)}else if(body&&body.action==='deleteEvent'){state.events=state.events.filter(function(x){return x.id!==body.id});state.attendance=state.attendance.filter(function(x){return x.eventId!==body.id})}else if(body&&body.action==='registerAttendance')state.attendance.push({eventId:body.eventId,name:body.name,createdAt:new Date().toISOString()});localStorage.setItem('eventFunPreviewData',JSON.stringify(state));resolve(state)}catch(err){reject(err)}})}
+function api(method,body){if(isPreviewMode())return localApi(method,body);var options={method:method,headers:{'Accept':'application/json'}};if(body){options.headers['Content-Type']='application/json';options.body=JSON.stringify(body)}return fetch('/api/state',options).then(function(res){return res.text().then(function(text){var data;try{data=JSON.parse(text)}catch(err){data={error:'API JSON биш хариу өглөө (HTTP '+res.status+')'}}if(!res.ok)throw new Error(data.error||('HTTP '+res.status));return data})})}
+function load(){return api('GET').then(function(data){db=data&&Array.isArray(data.events)&&Array.isArray(data.attendance)?data:{events:[],attendance:[]};render();return db}).catch(function(err){console.error(err);db={events:[],attendance:[]};render();toast('Сервертэй холбогдсонгүй. Түр горимоор нээгдлээ.');return db})}
 function render(){
+ renderBirthdays();
  var selectedEvent=el('checkEvent')?el('checkEvent').value:'';
  var selectedEmployee=el('checkEmployee')?el('checkEmployee').value:'';
  el('eventGrid').innerHTML=db.events.length?db.events.map(function(e){var n=db.attendance.filter(function(a){return a.eventId===e.id}).length;return '<article class="card" data-event-card="'+esc(e.id)+'" style="cursor:pointer"><span class="tag">'+esc(e.type)+'</span><h3>'+esc(e.title)+'</h3><div class="meta"><span>📅 '+fmt(e.date)+' '+esc(e.time)+'</span><span>📍 '+esc(e.place||'Байршилгүй')+'</span><span>'+esc(e.note||'')+'</span></div><span class="count">✅ '+n+' хүн ирц өгсөн</span><div class="card-actions"><button type="button" class="edit-btn" data-edit-event="'+esc(e.id)+'">✏️ Засах</button><button type="button" class="delete-btn" data-delete-event="'+esc(e.id)+'">🗑 Устгах</button></div></article>'}).join(''):'<div class="empty">Одоогоор event алга. Шинэ event нэмээрэй 🎈</div>';
@@ -91,6 +152,23 @@ function render(){
  if(selectedEmployee&&employees.indexOf(selectedEmployee)>=0)el('checkEmployee').value=selectedEmployee;
  el('attendanceTotal').textContent=db.attendance.length;
  var names={};db.events.forEach(function(e){names[e.id]=e.title});el('recent').innerHTML=db.attendance.length?db.attendance.slice(-6).reverse().map(function(a){return '<div class="row"><div><strong>'+esc(a.name)+'</strong><br><small>'+esc(names[a.eventId]||'Event')+'</small></div><span>✅</span></div>'}).join(''):'<div class="empty">Ирц бүртгэгдээгүй байна.</div>';
+}
+
+function renderBirthdays(){
+ var now=new Date(),todayMonth=now.getMonth()+1,todayDay=now.getDate(),year=now.getFullYear();
+ var monthNames=['1-р сар','2-р сар','3-р сар','4-р сар','5-р сар','6-р сар','7-р сар','8-р сар','9-р сар','10-р сар','11-р сар','12-р сар'];
+ var rows=employeeBirthdays.map(function(x){
+  var date=new Date(year,x.month-1,x.day);date.setHours(0,0,0,0);
+  var today=new Date(year,todayMonth-1,todayDay);today.setHours(0,0,0,0);
+  if(date<today)date=new Date(year+1,x.month-1,x.day);
+  return {name:x.name,month:x.month,day:x.day,nextDate:date,isToday:x.month===todayMonth&&x.day===todayDay};
+ }).sort(function(a,b){return a.nextDate-b.nextDate});
+ var next=rows[0];
+ el('nextBirthdayName').textContent=next?(next.isToday?'Өнөөдөр: ':'')+next.name:'—';
+ el('nextBirthdayDate').textContent=next?(monthNames[next.month-1]+'ын '+next.day+(next.isToday?' 🎉':' хүртэл '+Math.ceil((next.nextDate-new Date(year,todayMonth-1,todayDay))/86400000)+' хоног')):'—';
+ el('birthdayList').innerHTML=rows.map(function(x,i){
+  return '<div class="birthday-item '+(x.isToday?'today':(i===0?'next':''))+'"><div class="birthday-person"><span class="birthday-avatar">🎈</span><strong>'+esc(x.name)+'</strong></div><span class="birthday-date">'+x.day+' · '+esc(monthNames[x.month-1])+'</span></div>';
+ }).join('');
 }
 function openEvent(){el('eventForm').reset();el('editingEventId').value='';el('eventDialogTitle').textContent='Шинэ event 🎈';el('eventDialog').showModal()}
 window.openEvent=openEvent;
@@ -117,6 +195,26 @@ el('deleteConfirmButton').addEventListener('click',confirmDeleteEvent);el('delet
 el('eventSaveButton').addEventListener('click',saveEvent);el('eventForm').addEventListener('submit',function(e){e.preventDefault();saveEvent()});
 el('eventGrid').addEventListener('click',function(e){var eb=e.target.closest('[data-edit-event]');if(eb){e.preventDefault();e.stopPropagation();editEvent(eb.getAttribute('data-edit-event'));return}var dbtn=e.target.closest('[data-delete-event]');if(dbtn){e.preventDefault();e.stopPropagation();deleteEvent(dbtn.getAttribute('data-delete-event'));return}var card=e.target.closest('[data-event-card]');if(card)window.pickEvent(card.getAttribute('data-event-card'))});
 el('checkinButton').addEventListener('click',registerAttendance);el('checkForm').addEventListener('submit',function(e){e.preventDefault();registerAttendance()});
+
+var motionEnabled=localStorage.getItem('eventFunMotion')!=='off';
+var countdownTimer=null,confettiShown=false;
+function initials(name){return String(name||'?').trim().charAt(0).toUpperCase()}
+function animateNumber(node,to){var from=Number(node.textContent)||0,start=performance.now(),duration=550;function frame(t){var p=Math.min(1,(t-start)/duration);node.textContent=Math.round(from+(to-from)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(frame)}requestAnimationFrame(frame)}
+function updateStats(){animateNumber(el('statEvents'),db.events.length);animateNumber(el('statAttendance'),db.attendance.length);el('statPeople').textContent=employeeBirthdays.length;var next=getNextBirthday();el('statBirthday').textContent=next?next.day+' · '+next.month+'-р сар':'—'}
+function getNextBirthday(){var now=new Date(),base=new Date(now.getFullYear(),now.getMonth(),now.getDate());return employeeBirthdays.map(function(x){var d=new Date(base.getFullYear(),x.month-1,x.day);if(d<base)d.setFullYear(d.getFullYear()+1);return Object.assign({},x,{target:d,diff:d-base})}).sort(function(a,b){return a.diff-b.diff})[0]}
+function updateCountdown(){var next=getNextBirthday();if(!next)return;var diff=Math.max(0,next.target-new Date()),days=Math.floor(diff/86400000),hours=Math.floor(diff%86400000/3600000),mins=Math.floor(diff%3600000/60000),secs=Math.floor(diff%60000/1000),vals=[[days,'хоног'],[hours,'цаг'],[mins,'минут'],[secs,'секунд']];el('birthdayCountdown').innerHTML=vals.map(function(v){return '<div class="timebox"><b>'+String(v[0]).padStart(2,'0')+'</b><small>'+v[1]+'</small></div>'}).join('')}
+function renderBirthdayWall(){var groups={};employeeBirthdays.forEach(function(x){(groups[x.month]||(groups[x.month]=[])).push(x)});el('birthdayWall').innerHTML=Object.keys(groups).map(Number).sort(function(a,b){return a-b}).map(function(m){return '<article class="month-card"><h3>🎂 '+m+'-р сар</h3>'+groups[m].sort(function(a,b){return a.day-b.day}).map(function(x){return '<div class="month-person"><span>'+esc(x.name)+'</span><b>'+x.day+'</b></div>'}).join('')+'</article>'}).join('')}
+function createBalloons(){var host=el('balloonLayer');if(!host||host.children.length)return;var colors=['#ff70aa','#5b6cff','#35d5e5','#ffd166','#44d7a8'];for(var i=0;i<10;i++){var b=document.createElement('i');b.className='balloon';b.style.left=(4+Math.random()*90)+'%';b.style.background=colors[i%colors.length];b.style.color=colors[i%colors.length];b.style.setProperty('--dur',(10+Math.random()*10)+'s');b.style.setProperty('--delay',(-Math.random()*16)+'s');b.style.setProperty('--drift',(-50+Math.random()*100)+'px');host.appendChild(b)}}
+function launchConfetti(count){if(!motionEnabled)return;for(var i=0;i<(count||90);i++){var c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background='hsl('+Math.floor(Math.random()*360)+' 90% 62%)';c.style.setProperty('--x',(-180+Math.random()*360)+'px');c.style.setProperty('--fall',(2.8+Math.random()*2.4)+'s');c.style.animationDelay=(Math.random()*.7)+'s';document.body.appendChild(c);setTimeout((function(n){return function(){n.remove()}})(c),6000)}}
+function setupReveal(){var items=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){items.forEach(function(x){x.classList.add('visible')});return}var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});items.forEach(function(x){io.observe(x)})}
+function setupTilt(){document.addEventListener('pointermove',function(e){var card=e.target.closest('.card');if(!card||!motionEnabled||innerWidth<700)return;var r=card.getBoundingClientRect(),rx=((e.clientY-r.top)/r.height-.5)*-7,ry=((e.clientX-r.left)/r.width-.5)*8;card.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg) translateY(-5px)'});document.addEventListener('pointerout',function(e){var card=e.target.closest('.card');if(card)card.style.transform=''})}
+function applyTheme(){var dark=localStorage.getItem('eventFunTheme')==='dark';document.body.classList.toggle('dark',dark);el('themeToggle').textContent=dark?'☀️':'🌙'}
+el('themeToggle').addEventListener('click',function(){localStorage.setItem('eventFunTheme',document.body.classList.contains('dark')?'light':'dark');applyTheme()});
+el('motionToggle').addEventListener('click',function(){motionEnabled=!motionEnabled;localStorage.setItem('eventFunMotion',motionEnabled?'on':'off');document.body.classList.toggle('reduce-motion',!motionEnabled);this.textContent=motionEnabled?'✨':'⏸'});
+window.addEventListener('scroll',function(){var max=document.documentElement.scrollHeight-innerHeight;el('scrollProgress').style.width=(max?scrollY/max*100:0)+'%'});
+var originalRender=render;render=function(){originalRender();updateStats();renderBirthdayWall();updateCountdown();createBalloons();var next=getNextBirthday();var now=new Date();if(next&&next.month===now.getMonth()+1&&next.day===now.getDate()&&!confettiShown){confettiShown=true;launchConfetti(130)}document.querySelectorAll('.birthday-avatar').forEach(function(a,i){a.textContent=initials(employeeBirthdays[i%employeeBirthdays.length].name)})};
+document.body.classList.toggle('preview-mode',isPreviewMode());applyTheme();document.body.classList.toggle('reduce-motion',!motionEnabled);el('motionToggle').textContent=motionEnabled?'✨':'⏸';setupReveal();setupTilt();countdownTimer=setInterval(updateCountdown,1000);
+
 load();
 </script>
 </body></html>
