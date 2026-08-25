@@ -15,7 +15,7 @@ function clean(value) {
 }
 
 async function ensureTables(env) {
-  await env.DB.prepare(`
+  await env.EVENTS_DB.prepare(`
     CREATE TABLE IF NOT EXISTS events (
       id TEXT PRIMARY KEY,
       title TEXT NOT NULL,
@@ -29,7 +29,7 @@ async function ensureTables(env) {
     )
   `).run();
 
-  await env.DB.prepare(`
+  await env.EVENTS_DB.prepare(`
     CREATE TABLE IF NOT EXISTS attendance (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       eventId TEXT NOT NULL,
@@ -38,7 +38,7 @@ async function ensureTables(env) {
     )
   `).run();
 
-  await env.DB.prepare(`
+  await env.EVENTS_DB.prepare(`
     CREATE INDEX IF NOT EXISTS idx_attendance_eventId
     ON attendance(eventId)
   `).run();
@@ -181,12 +181,12 @@ async function notifyTeams(env, action, event) {
 
 async function readState(env) {
   const [eventResult, attendanceResult] = await Promise.all([
-    env.DB.prepare(`
+    env.EVENTS_DB.prepare(`
       SELECT id, title, type, date, time, place, note, createdAt, updatedAt
       FROM events
       ORDER BY date ASC, time ASC, createdAt ASC
     `).all(),
-    env.DB.prepare(`
+    env.EVENTS_DB.prepare(`
       SELECT id, eventId, name, createdAt
       FROM attendance
       ORDER BY createdAt ASC, id ASC
@@ -203,7 +203,7 @@ async function createEvent(env, rawEvent) {
   const event = validateEvent(rawEvent);
   const now = new Date().toISOString();
 
-  await env.DB.prepare(`
+  await env.EVENTS_DB.prepare(`
     INSERT INTO events
       (id, title, type, date, time, place, note, createdAt, updatedAt)
     VALUES
@@ -229,7 +229,7 @@ async function updateEvent(env, rawEvent) {
   const event = validateEvent(rawEvent);
   const now = new Date().toISOString();
 
-  const result = await env.DB.prepare(`
+  const result = await env.EVENTS_DB.prepare(`
     UPDATE events
     SET title = ?,
         type = ?,
@@ -266,7 +266,7 @@ async function deleteEvent(env, idValue) {
     throw new Error("Устгах event ID дутуу байна");
   }
 
-  const event = await env.DB.prepare(`
+  const event = await env.EVENTS_DB.prepare(`
     SELECT id, title, type, date, time, place, note
     FROM events
     WHERE id = ?
@@ -278,9 +278,9 @@ async function deleteEvent(env, idValue) {
     throw new Error("Устгах event олдсонгүй");
   }
 
-  await env.DB.batch([
-    env.DB.prepare("DELETE FROM attendance WHERE eventId = ?").bind(id),
-    env.DB.prepare("DELETE FROM events WHERE id = ?").bind(id)
+  await env.EVENTS_DB.batch([
+    env.EVENTS_DB.prepare("DELETE FROM attendance WHERE eventId = ?").bind(id),
+    env.EVENTS_DB.prepare("DELETE FROM events WHERE id = ?").bind(id)
   ]);
 
   await notifyTeams(env, "deleteEvent", event);
@@ -294,7 +294,7 @@ async function registerAttendance(env, eventIdValue, nameValue) {
     throw new Error("Event болон ажилтны нэрийг сонгоно уу");
   }
 
-  const event = await env.DB.prepare(
+  const event = await env.EVENTS_DB.prepare(
     "SELECT id FROM events WHERE id = ?"
   )
     .bind(eventId)
@@ -304,7 +304,7 @@ async function registerAttendance(env, eventIdValue, nameValue) {
     throw new Error("Ирц бүртгэх event олдсонгүй");
   }
 
-  const existing = await env.DB.prepare(`
+  const existing = await env.EVENTS_DB.prepare(`
     SELECT id
     FROM attendance
     WHERE eventId = ? AND name = ?
@@ -317,7 +317,7 @@ async function registerAttendance(env, eventIdValue, nameValue) {
     throw new Error("Энэ ажилтны ирц өмнө нь бүртгэгдсэн байна");
   }
 
-  await env.DB.prepare(`
+  await env.EVENTS_DB.prepare(`
     INSERT INTO attendance (eventId, name, createdAt)
     VALUES (?, ?, ?)
   `)
@@ -329,7 +329,7 @@ export async function onRequestGet(context) {
   try {
     const { env } = context;
 
-    if (!env.DB) {
+    if (!env.EVENTS_DB) {
       return json({ error: "D1 binding DB тохируулаагүй байна" }, 500);
     }
 
@@ -345,7 +345,7 @@ export async function onRequestPost(context) {
   try {
     const { request, env } = context;
 
-    if (!env.DB) {
+    if (!env.EVENTS_DB) {
       return json({ error: "D1 binding DB тохируулаагүй байна" }, 500);
     }
 
